@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Assignment 14/12 </title>
+</head>
+<body>
+    <!-- This code for gessing the number by users  -->
+    <div>
+        <h4> Guess The Number Between One To Ten</h4>
+        <input type="number" id = 'guess'>
+        <input type="submit" value="Guess" onclick="getGuess()">
+        <br>
+        <p id="para"></p>
+    </div>
+<!-- ------------------------------------------------------------------- -->
+    <br><br><br>
+
+    <!-- add items to a blank array and display  -->
+    <div>
+        <input type="text" id = 'items'>
+        <input type="submit" value="Add" onclick="Addetion()">
+        <input type="submit" value="Display" onclick="Display()">
+        <br>
+    </div>
+    <script>
+        // This code for gessing the number by users 
+        function getGuess(){
+            var paragraph = document.getElementById('para');
+            var randomNumber = Math.floor(Math.random() * 10) + 1;
+            var guessInput = document.getElementById('guess').value ;
+
+            if(guessInput == randomNumber){
+                paragraph.innerHTML = 'Good Work';
+            }else{
+                paragraph.innerHTML='Not matched';
+            }
+
+        }
+    // ----------------------------------------------------------------
+
+    // add items to a blank array and display 
+            let myArray = [];  
+
+            function Addetion(){
+                var inputField = document.getElementById('items'); 
+                var addItem = inputField.value; 
+                myArray.push(addItem);
+                inputField.value ='';
+        }
+
+        function Display(){
+
+            for (let i= 0; i< myArray.length; i++) {
+            
+                let newParagraph = document.createElement("p");
+                newParagraph.innerHTML = 'Element'+" "+i +' = '+ myArray[i];
+                document.body.appendChild(newParagraph);  
+            }
+        }
+
+    </script>
+</body>
+</html>
